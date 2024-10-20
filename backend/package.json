@@ -1,0 +1,11 @@
+{
+  "name": "todo-list-api",
+  "version": "1.0.0",
+  "description": "A REST API for managing tasks in a Todo list, including creating, updating, filtering, and deleting tasks.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Iman Maulana",
+  "license": "ISC"
+}
