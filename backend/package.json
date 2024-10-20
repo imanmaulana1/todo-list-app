@@ -2,10 +2,20 @@
   "name": "todo-list-api",
   "version": "1.0.0",
   "description": "A REST API for managing tasks in a Todo list, including creating, updating, filtering, and deleting tasks.",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Iman Maulana",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.7"
+  }
 }
