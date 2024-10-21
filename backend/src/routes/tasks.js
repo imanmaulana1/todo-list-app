@@ -1,26 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
-const tasksController = require('../controllers/tasks');
+const tasksController = require('../controllers/tasksController');
+const validateTask = require('../middleware/validateTask');
 
-router.get('/', (req, res) => {
-  res.json({ message: 'Fetching tasks...' });
-});
+router.get('/', tasksController.getTasks);
 
-router.post('/', (req, res) => {
-  res.status(201).json({ message: 'Creating a task...' });
-});
+router.post('/', validateTask, tasksController.createTask);
 
-router.patch('/:taskId', (req, res) => {
-  res.json({ message: 'Updating status of task...' });
-});
+router.patch('/:taskId', tasksController.updateStatusTask);
 
-router.put('/:taskId', (req, res) => {
-  res.json({ message: 'Updating a task...' });
-});
+router.put('/:taskId', tasksController.updateTask);
 
-router.delete('/:taskId', (req, res) => {
-  res.json({ message: 'Deleting a task...' });
-});
+router.delete('/:taskId', tasksController.deleteTask);
 
 module.exports = router;
