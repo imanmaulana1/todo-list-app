@@ -1,10 +1,13 @@
-import { Header, TodoInput } from './components';
+import { Header, TodoFilter, TodoInput } from './components';
 
 function App() {
   return (
     <div className='container'>
       <Header />
-      <TodoInput />
+      <main>
+        <TodoFilter />
+        <TodoInput />
+      </main>
     </div>
   );
 }

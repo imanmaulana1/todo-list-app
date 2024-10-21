@@ -7,7 +7,7 @@ const TodoInput = () => {
   const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <form className={styles.formWrapper}>
         <div className={styles.dots}>
           {[...Array(3)].map((_, index) => (
@@ -36,7 +36,7 @@ const TodoInput = () => {
           />
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 

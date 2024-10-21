@@ -6,6 +6,7 @@
 
 .formWrapper {
   padding-inline: 0.8rem;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   background-color: #ffffff;
