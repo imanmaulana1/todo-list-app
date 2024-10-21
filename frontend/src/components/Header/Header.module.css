@@ -11,13 +11,15 @@
 }
 
 .subtitle {
-  font-size: clamp(1.25rem, 3.5vw, 1.8rem);
+  font-size: clamp(1.25rem, 3.5vw, 1.5rem);
   font-weight: 500;
 }
 
 .description {
+    color: var(--accent-text-color);
   margin-top: 8px;
   margin-bottom: 1.5rem;
+  font-style: italic;
 }
 
 @media (max-width: 600px) {
