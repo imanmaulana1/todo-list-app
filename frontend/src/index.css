@@ -4,3 +4,14 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+
+body {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgb(138, 159, 255);
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 1200px;
+  width: 90%;
+}
