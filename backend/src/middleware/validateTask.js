@@ -1,4 +1,4 @@
-const validateTask = (req, res, next) => {
+const validateCreateTask = (req, res, next) => {
   if (!req.body.task) {
     return res.status(400).json({
       message: 'Task name is required',
@@ -20,4 +20,23 @@ const validateTask = (req, res, next) => {
   next();
 };
 
-module.exports = validateTask;
+const validatePatchTask = (req, res, next) => {
+  if (typeof req.body.completed !== 'number') {
+    return res.status(400).json({
+      message: 'Completed must be a number',
+    });
+  }
+
+  if (req.body.completed !== 0 && req.body.completed !== 1) {
+    return res.status(400).json({
+      message: 'Completed must be 0 or 1',
+    });
+  }
+
+  next();
+};
+
+module.exports = {
+  validateCreateTask,
+  validatePatchTask,
+};
