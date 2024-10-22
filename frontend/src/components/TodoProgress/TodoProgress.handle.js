@@ -1,3 +1,7 @@
+const getTaskCompleted = (tasks) => {
+  return tasks.filter((task) => task.completed === 1).length;
+};
+
 const getPercentage = (tasks, setPercentage) => {
   const completed = getTaskCompleted(tasks);
   const totalTasks = tasks.length;
@@ -9,8 +13,4 @@ const getPercentage = (tasks, setPercentage) => {
   }
 };
 
-const getTaskCompleted = (tasks) => {
-  return tasks.filter((task) => task.completed === 1).length;
-};
-
-export { getPercentage, getTaskCompleted };
+export { getTaskCompleted, getPercentage };

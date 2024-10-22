@@ -7,22 +7,26 @@ const fetchTasks = async () => {
     const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {
-    throw new Error('Failed to fetch tasks');
+    throw new Error('Failed to fetch tasks' + error.message);
+  }
+};
+
+const createTask = async (payload) => {
+  try {
+    const response = await axios.post(API_URL, payload);
+    return response.data;
+  } catch (error) {
+    throw new Error('Failed to create task' + error.message);
   }
 };
 
 const updateStatusTask = async (taskId, payload) => {
-  const { completed, updated_at } = payload;
-
   try {
-    const response = await axios.patch(`${API_URL}/${taskId}`, {
-      completed,
-      updated_at,
-    });
+    const response = await axios.patch(`${API_URL}${taskId}`, payload);
     return response.data;
   } catch (error) {
-    throw new Error('Oops, something went wrong');
+    throw new Error('Oops, something went wrong' + error.message);
   }
 };
 
-export { fetchTasks, updateStatusTask };
+export { fetchTasks, updateStatusTask, createTask };

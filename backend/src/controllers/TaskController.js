@@ -15,10 +15,10 @@ const getTaskById = async (req, res) => {};
 
 const createTask = async (req, res) => {
   const data = {
-    task_name: req.body.task,
-    completed: 0,
+    task_name: req.body.task_name,
     created_at: new Date(),
     updated_at: new Date(),
+    completed: 0,
   };
 
   try {

@@ -1,14 +1,7 @@
 import moment from 'moment';
 import { updateStatusTask } from '../../services/todoService';
-import { getTasks } from '../TodoList/TodoList.handle';
 
-const formattedDate = (date) => {
-  return moment(date).format('h:mm A, DD/MM/YYYY');
-};
-
-const handleStatus = async (id, completed, setTasks, setError, setLoading) => {
-  setLoading(true);
-
+const handleStatus = async (id, completed, setTasks) => {
   const payload = {
     completed: completed === 0 ? 1 : 0,
     updated_at: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -16,12 +9,20 @@ const handleStatus = async (id, completed, setTasks, setError, setLoading) => {
 
   try {
     await updateStatusTask(id, payload);
-    getTasks(setTasks, setError, setLoading);
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              completed: payload.completed,
+              updated_at: payload.updated_at,
+            }
+          : task
+      )
+    );
   } catch (error) {
     console.error('Error updating task status:', error);
-  } finally {
-    setLoading(false);
   }
 };
 
-export { formattedDate, handleStatus };
+export { handleStatus };

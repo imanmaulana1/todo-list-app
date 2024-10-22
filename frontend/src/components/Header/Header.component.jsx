@@ -1,5 +1,5 @@
 import TodoProgress from '../TodoProgress/TodoProgress.component';
-import { formatDate } from './Header.handle';
+import { formatDate } from '../../utils/helpers';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -12,7 +12,9 @@ const Header = () => {
         <p className={styles.description}>
           Manage your tasks and boost your productivity
         </p>
-        <h2 className={styles.subtitle}>{formatDate(currentDate)}</h2>
+        <h2 className={styles.subtitle}>
+          {formatDate(currentDate, 'dddd, D MMMM YYYY')}
+        </h2>
       </div>
       <div className={styles.headerContent}>
         <TodoProgress />

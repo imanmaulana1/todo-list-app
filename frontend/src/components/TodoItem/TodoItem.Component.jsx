@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import { TaskContext } from '../../contexts/TaskContext';
 import { MdDelete, MdEdit, MdOutlineDone } from 'react-icons/md';
-import { formattedDate, handleStatus } from './TodoItem.handle';
+import { handleStatus } from './TodoItem.handle';
 import styles from './TodoItem.module.css';
+import { formatDate } from '../../utils/helpers';
 
 const TodoItem = ({ data }) => {
   const { id, task_name, completed, updated_at } = data;
@@ -30,7 +31,9 @@ const TodoItem = ({ data }) => {
         </button>
         <div className={styles.content}>
           <p className={styles.title}>{task_name}</p>
-          <p className={styles.date}>{formattedDate(updated_at)}</p>
+          <p className={styles.date}>
+            {formatDate(updated_at, 'h:mm A, DD/MM/YYYY')}
+          </p>
         </div>
       </div>
       <div className={styles.actions}>

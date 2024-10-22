@@ -1,4 +1,4 @@
-import { fetchTasks } from '../../services/todoService';
+import { fetchTasks } from '../services/todoService';
 
 const getTasks = async (setTasks, setError, setLoading) => {
   setLoading(true);

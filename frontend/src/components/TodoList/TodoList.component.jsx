@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { TaskContext } from '../../contexts/TaskContext';
+import { getTasks } from '../../utils/api';
 import Loader from '../Loader/Loader.component';
-import { getTasks } from './TodoList.handle';
 import styles from './TodoList.module.css';
 
 const TodoList = ({ children }) => {
@@ -11,8 +11,6 @@ const TodoList = ({ children }) => {
   useEffect(() => {
     getTasks(setTasks, setError, setLoading);
   }, []);
-
-  console.log(tasks);
 
   return (
     <>

@@ -1,14 +1,25 @@
-import { useState } from 'react';
-import { handleBlur, handleChange, handleFocus } from './TodoInput.handle';
+import { useContext, useState } from 'react';
+import { TaskContext } from '../../contexts/TaskContext';
+import {
+  handleBlur,
+  handleChange,
+  handleFocus,
+  handleSubmit,
+} from './TodoInput.handle';
 import styles from './TodoInput.module.css';
 
 const TodoInput = () => {
   const [input, setInput] = useState('');
   const [isFocus, setIsFocus] = useState(false);
 
+  const { setTasks, setError, setLoading } = useContext(TaskContext);
+
   return (
     <section className={styles.container}>
-      <form className={styles.formWrapper}>
+      <form
+        className={styles.formWrapper}
+        onSubmit={(e) => handleSubmit(e, input, setInput, setTasks, setError, setLoading)}
+      >
         <div className={styles.dots}>
           {[...Array(3)].map((_, index) => (
             <div
