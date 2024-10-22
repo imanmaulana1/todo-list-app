@@ -15,14 +15,17 @@ const TodoList = ({ children }) => {
   return (
     <>
       {loading && <Loader />}
-      {!loading &&
-        (tasks?.length > 0 ? (
-          <section className={styles.todoList}>{children}</section>
-        ) : (
-          <section className={styles.empty}>
-            <h2 className={styles.title}>You have no tasks.</h2>
-          </section>
-        ))}
+      {!loading && (
+        <>
+          {tasks?.length > 0 ? (
+            <section className={styles.todoList}>{children}</section>
+          ) : (
+            <section className={styles.empty}>
+              <h2 className={styles.title}>You have no tasks.</h2>
+            </section>
+          )}
+        </>
+      )}
     </>
   );
 };

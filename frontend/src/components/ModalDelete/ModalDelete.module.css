@@ -1,0 +1,56 @@
+.deleteIcon {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.deleteText {
+  margin-block: 1rem;
+  text-align: center;
+  color: var(--accent-text-color);
+  font-size: 1rem;
+}
+
+.modalActions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.deleteModalButton {
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: #943a3a;
+  }
+}
+
+.cancelModalButton {
+  background-color: var(--secondary-color);
+  color: var(--primary-text-color);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #bbb;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .deleteModalButton,
+  .cancelModalButton {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+  }
+}

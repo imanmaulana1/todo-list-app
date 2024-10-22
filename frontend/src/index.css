@@ -6,8 +6,7 @@
   --primary-text-color: #333333;
   --accent-text-color: #666666;
 
-  --warning-color: #ffb74d;
-  --danger-color: #ff4d4d;
+  --danger-color: #c64d4d;
 }
 
 * {
@@ -28,7 +27,7 @@ body {
   width: 90%;
 }
 
-.sr-only{
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;

@@ -29,4 +29,13 @@ const updateStatusTask = async (taskId, payload) => {
   }
 };
 
-export { fetchTasks, updateStatusTask, createTask };
+const deleteTask = async (taskId) => {
+  try {
+    const response = await axios.delete(`${API_URL}${taskId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error('Oops, something went wrong' + error.message);
+  }
+};
+
+export { fetchTasks, updateStatusTask, createTask, deleteTask };
