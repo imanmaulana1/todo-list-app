@@ -7,8 +7,22 @@ const fetchTasks = async () => {
     const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {
-    console.error(error);
+    throw new Error('Failed to fetch tasks');
   }
 };
 
-export { fetchTasks };
+const updateStatusTask = async (taskId, payload) => {
+  const { completed, updated_at } = payload;
+
+  try {
+    const response = await axios.patch(`${API_URL}/${taskId}`, {
+      completed,
+      updated_at,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error('Oops, something went wrong');
+  }
+};
+
+export { fetchTasks, updateStatusTask };

@@ -54,14 +54,14 @@
 .input {
   width: 100%;
   padding: 0.8rem;
-  color: #717082;
+  color: var(--primary-text-color);
   border: none;
   outline: none;
   font-size: 1rem;
   font-family: inherit;
 
   &::placeholder {
-    color: #bbbbbb;
+    color: var(--accent-text-color);
   }
 
 

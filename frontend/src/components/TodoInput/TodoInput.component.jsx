@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styles from './TodoInput.module.css';
+import { useState } from 'react';
 import { handleBlur, handleChange, handleFocus } from './TodoInput.handle';
+import styles from './TodoInput.module.css';
 
 const TodoInput = () => {
   const [input, setInput] = useState('');

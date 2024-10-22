@@ -1,5 +1,4 @@
 import TodoProgress from '../TodoProgress/TodoProgress.component';
-
 import { formatDate } from './Header.handle';
 import styles from './Header.module.css';
 
