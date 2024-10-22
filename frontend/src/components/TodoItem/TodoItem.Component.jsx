@@ -1,17 +1,25 @@
-import React from 'react';
 import styles from './TodoItem.module.css';
 import { MdDelete, MdEdit, MdOutlineDone } from 'react-icons/md';
+import { formattedDate } from './TodoItem.handle';
 
-const TodoItem = () => {
+const TodoItem = ({ data }) => {
+  const { task_name, completed, updated_at } = data;
+
   return (
     <article className={styles.wrapper}>
       <div className={styles.contentWrapper}>
-        <div className={`${styles.checkbox} ${styles.checked}`}>
-          <MdOutlineDone color='#ffffff' />
+        <div
+          className={
+            completed === 1
+              ? `${styles.checkbox} ${styles.checked}`
+              : styles.checkbox
+          }
+        >
+          {completed === 1 && <MdOutlineDone color='#ffffff' />}
         </div>
         <div className={styles.content}>
-          <p className={styles.title}>Task Title</p>
-          <p className={styles.date}>3:00 PM, 21/02/2022</p>
+          <p className={styles.title}>{task_name}</p>
+          <p className={styles.date}>{formattedDate(updated_at)}</p>
         </div>
       </div>
       <div className={styles.actions}>

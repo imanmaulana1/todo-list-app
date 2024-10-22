@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   Header,
   TodoFilter,
@@ -5,8 +6,10 @@ import {
   TodoItem,
   TodoList,
 } from './components';
+import { TaskContext } from './contexts/TaskContext';
 
 function App() {
+  const { tasks } = useContext(TaskContext);
   return (
     <div className='container'>
       <Header />
@@ -14,9 +17,9 @@ function App() {
         <TodoFilter />
         <TodoInput />
         <TodoList>
-          <TodoItem />
-          <TodoItem />
-          <TodoItem />
+          {tasks?.map((task) => (
+            <TodoItem key={task.id} data={task} />
+          ))}
         </TodoList>
       </main>
     </div>
