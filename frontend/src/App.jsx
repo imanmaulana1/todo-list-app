@@ -1,4 +1,10 @@
-import { Header, TodoFilter, TodoInput } from './components';
+import {
+  Header,
+  TodoFilter,
+  TodoInput,
+  TodoItem,
+  TodoList,
+} from './components';
 
 function App() {
   return (
@@ -7,6 +13,11 @@ function App() {
       <main>
         <TodoFilter />
         <TodoInput />
+        <TodoList>
+          <TodoItem />
+          <TodoItem />
+          <TodoItem />
+        </TodoList>
       </main>
     </div>
   );
