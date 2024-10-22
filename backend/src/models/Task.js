@@ -30,9 +30,9 @@ const dbGetTaskById = async (taskId) => {
   return rows;
 };
 
-const dbUpdateStatusTask = async (taskId, newStatus) => {
-  const SQLQuery = `UPDATE tasks SET completed = ? WHERE id = ?`;
-  return await db.execute(SQLQuery, [newStatus, taskId]);
+const dbUpdateStatusTask = async (taskId, data) => {
+  const SQLQuery = `UPDATE tasks SET completed = ?, updated_at = ? WHERE id = ?`;
+  return await db.execute(SQLQuery, [data.completed, data.updated_at, taskId]);
 };
 
 const dbUpdateTask = async (taskId, newTask) => {

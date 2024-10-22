@@ -39,10 +39,9 @@ const updateTask = async (req, res) => {};
 
 const updateStatusTask = async (req, res) => {
   const { taskId } = req.params;
-  const { completed } = req.body;
 
   try {
-    await Task.dbUpdateStatusTask(taskId, completed);
+    await Task.dbUpdateStatusTask(taskId, req.body);
 
     res.status(200).json({ message: 'Task updated successfully' });
   } catch (error) {
