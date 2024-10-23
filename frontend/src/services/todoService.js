@@ -7,7 +7,7 @@ const fetchTasks = async () => {
     const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {
-    throw new Error('Failed to fetch tasks' + error.message);
+    throw error;
   }
 };
 
@@ -16,7 +16,7 @@ const createTask = async (payload) => {
     const response = await axios.post(API_URL, payload);
     return response.data;
   } catch (error) {
-    throw new Error('Failed to create task' + error.message);
+    throw error;
   }
 };
 
@@ -34,7 +34,7 @@ const updateTask = async (taskId, payload) => {
     const response = await axios.put(`${API_URL}${taskId}`, payload);
     return response.data;
   } catch (error) {
-    throw new Error('Error service update' + error.message);
+    throw error;
   }
 };
 
@@ -43,7 +43,7 @@ const updateStatusTask = async (taskId, payload) => {
     const response = await axios.patch(`${API_URL}${taskId}`, payload);
     return response.data;
   } catch (error) {
-    throw new Error('Oops, something went wrong' + error.message);
+    throw error;
   }
 };
 
@@ -52,7 +52,7 @@ const deleteTask = async (taskId) => {
     const response = await axios.delete(`${API_URL}${taskId}`);
     return response.data;
   } catch (error) {
-    throw new Error('Oops, something went wrong' + error.message);
+    throw error;
   }
 };
 

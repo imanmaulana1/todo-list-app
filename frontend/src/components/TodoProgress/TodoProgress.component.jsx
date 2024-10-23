@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { TaskContext } from '../../contexts/TaskContext';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { getPercentage, getTaskCompleted } from './TodoProgress.handle';
+import { getPercentage, getTaskCompleted, showToast } from './TodoProgress.handle';
 import styles from './TodoProgress.module.css';
 
 const TodoProgress = () => {
@@ -10,7 +10,10 @@ const TodoProgress = () => {
   const { tasks } = useContext(TaskContext);
 
   useEffect(() => {
-    getPercentage(tasks, setPercentage);
+    const percentage = getPercentage(tasks);
+    setPercentage(percentage);
+    
+    showToast(percentage);
   }, [tasks]);
 
   return (
