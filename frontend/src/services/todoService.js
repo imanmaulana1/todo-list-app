@@ -20,6 +20,24 @@ const createTask = async (payload) => {
   }
 };
 
+const singleTask = async (taskId) => {
+  try {
+    const response = await axios.get(`${API_URL}${taskId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error('Oops, something went wrong' + error.message);
+  }
+};
+
+const updateTask = async (taskId, payload) => {
+  try {
+    const response = await axios.put(`${API_URL}${taskId}`, payload);
+    return response.data;
+  } catch (error) {
+    throw new Error('Error service update' + error.message);
+  }
+};
+
 const updateStatusTask = async (taskId, payload) => {
   try {
     const response = await axios.patch(`${API_URL}${taskId}`, payload);
@@ -38,4 +56,11 @@ const deleteTask = async (taskId) => {
   }
 };
 
-export { fetchTasks, updateStatusTask, createTask, deleteTask };
+export {
+  fetchTasks,
+  singleTask,
+  updateTask,
+  updateStatusTask,
+  createTask,
+  deleteTask,
+};

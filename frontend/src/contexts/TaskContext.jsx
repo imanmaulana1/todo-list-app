@@ -4,6 +4,7 @@ export const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [taskId, setTaskId] = useState(null);
@@ -12,6 +13,8 @@ export const TaskProvider = ({ children }) => {
       value={{
         tasks,
         setTasks,
+        task,
+        setTask,
         loading,
         setLoading,
         error,

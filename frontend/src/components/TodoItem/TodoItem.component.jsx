@@ -65,7 +65,10 @@ const TodoItem = ({ data }) => {
           <button
             className={styles.editButton}
             title='Edit Task'
-            onClick={() => handleOpenModal('edit')}
+            onClick={() => {
+              handleOpenModal('edit');
+              setTaskId(id);
+            }}
           >
             <MdEdit />
           </button>

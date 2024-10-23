@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { TaskContext } from '../../contexts/TaskContext';
 import { ModalContext } from '../../contexts/ModalContext';
 import { MdDeleteForever } from 'react-icons/md';
-import styles from './ModalDelete.module.css';
 import { handleDelete } from './ModalDelete.handle';
+import styles from './ModalDelete.module.css';
 
 const ModalDelete = () => {
   const { taskId, setTasks, setError, setLoading } = useContext(TaskContext);

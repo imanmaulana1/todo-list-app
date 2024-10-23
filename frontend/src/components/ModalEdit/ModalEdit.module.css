@@ -1,0 +1,105 @@
+.formControl {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.label {
+  font-size: 1rem;
+  color: var(--accent-text-color);
+}
+
+.input {
+  padding: 8px 15px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  outline: none;
+  background-color: transparent;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.select {
+  padding: 8px 15px;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 0 0 .293 4.707l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 1 0-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 30px;
+}
+
+.select::-ms-expand {
+  display: none;
+}
+
+.select:focus {
+  outline: none;
+}
+
+.modalActions {
+  width: 70%;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.saveModalButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: #3a6b94;
+  }
+}
+
+.cancelModalButton {
+  background-color: var(--secondary-color);
+  color: var(--primary-text-color);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #bbb;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modalActions {
+    width: 100%;
+  }
+
+  .saveModalButton,
+  .cancelModalButton {
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+  }
+}

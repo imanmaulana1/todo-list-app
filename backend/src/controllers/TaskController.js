@@ -11,7 +11,17 @@ const getTasks = async (req, res) => {
   }
 };
 
-const getTaskById = async (req, res) => {};
+const getTaskById = async (req, res) => {
+  const { taskId } = req.params;
+  try {
+    const task = await Task.dbGetTaskById(taskId);
+    res.json(task);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: 'Internal server error', error: error.message });
+  }
+};
 
 const createTask = async (req, res) => {
   const data = {
@@ -35,7 +45,23 @@ const createTask = async (req, res) => {
   }
 };
 
-const updateTask = async (req, res) => {};
+const updateTask = async (req, res) => {
+  const { taskId } = req.params;
+  const data = {
+    task_name: req.body.task_name,
+    completed: req.body.completed,
+    updated_at: new Date(),
+  };
+
+  try {
+    await Task.dbUpdateTask(taskId, data);
+    res.status(200).json({ message: 'Task updated successfully' });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: 'Internal server error', error: error.message });
+  }
+};
 
 const updateStatusTask = async (req, res) => {
   const { taskId } = req.params;

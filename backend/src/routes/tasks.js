@@ -3,11 +3,16 @@ const router = express.Router();
 
 const tasksController = require('../controllers/TaskController');
 
-const { validateCreateTask, validatePatchTask } = require('../middleware/validateTask');
+const {
+  validateCreateTask,
+  validatePatchTask,
+} = require('../middleware/validateTask');
 
 router.get('/', tasksController.getTasks);
 
 router.post('/', validateCreateTask, tasksController.createTask);
+
+router.get('/:taskId', tasksController.getTaskById);
 
 router.patch('/:taskId', validatePatchTask, tasksController.updateStatusTask);
 
