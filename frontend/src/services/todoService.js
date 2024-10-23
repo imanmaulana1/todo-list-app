@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = `${import.meta.env.VITE_API_URL}/api/tasks/`;
+const API_URL = `${import.meta.env.VITE_API_URL}/api/tasks`;
 
 const fetchTasks = async () => {
   try {
@@ -26,7 +26,7 @@ const createTask = async (payload) => {
 
 const singleTask = async (taskId) => {
   try {
-    const response = await axios.get(`${API_URL}${taskId}`);
+    const response = await axios.get(`${API_URL}/${taskId}`);
     return response.data;
   } catch (error) {
     throw new Error('Oops, something went wrong' + error.message);
@@ -35,7 +35,7 @@ const singleTask = async (taskId) => {
 
 const updateTask = async (taskId, payload) => {
   try {
-    const response = await axios.put(`${API_URL}${taskId}`, payload);
+    const response = await axios.put(`${API_URL}/${taskId}`, payload);
     return response.data;
   } catch (error) {
     throw error;
@@ -44,7 +44,7 @@ const updateTask = async (taskId, payload) => {
 
 const markAllTasksAsCompleted = async () => {
   try {
-    const response = await axios.patch(`${API_URL}completed`);
+    const response = await axios.patch(`${API_URL}/completed`);
     return response.data;
   } catch (error) {
     throw error;
@@ -53,7 +53,7 @@ const markAllTasksAsCompleted = async () => {
 
 const updateStatusTask = async (taskId, payload) => {
   try {
-    const response = await axios.patch(`${API_URL}${taskId}`, payload);
+    const response = await axios.patch(`${API_URL}/${taskId}`, payload);
     return response.data;
   } catch (error) {
     throw error;
@@ -62,7 +62,7 @@ const updateStatusTask = async (taskId, payload) => {
 
 const deleteTask = async (taskId) => {
   try {
-    const response = await axios.delete(`${API_URL}${taskId}`);
+    const response = await axios.delete(`${API_URL}/${taskId}`);
     return response.data;
   } catch (error) {
     throw error;

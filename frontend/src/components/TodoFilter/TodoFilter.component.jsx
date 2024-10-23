@@ -35,6 +35,12 @@ const TodoFilter = () => {
     setSearchTerm(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleFilter(filterStatus, searchTerm);
+    }
+  };
+
   const handleFilter = (status, name) => {
     const taskName = name.trim().toLowerCase();
     const filtered = tasks.filter((task) => {
@@ -86,6 +92,7 @@ const TodoFilter = () => {
             placeholder='Search'
             value={searchTerm}
             onChange={handleSearchChange}
+            onKeyDown={handleKeyDown}
           />
           <button
             className={styles.searchButton}
