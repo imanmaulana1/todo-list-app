@@ -33,6 +33,10 @@
   }
 }
 
+.checkbox.uncheck:hover {
+  background-color: #bbb;
+}
+
 .title {
   font-size: 1.1rem;
   color: var(--primary-text-color);
@@ -64,8 +68,6 @@
     color: #333;
   }
 }
-
-
 
 @media screen and (max-width: 600px) {
   .wrapper {

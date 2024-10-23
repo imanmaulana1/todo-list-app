@@ -8,6 +8,7 @@ export const TaskProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [taskId, setTaskId] = useState(null);
+  const [percentage, setPercentage] = useState(0);
   return (
     <TaskContext.Provider
       value={{
@@ -21,6 +22,8 @@ export const TaskProvider = ({ children }) => {
         setError,
         taskId,
         setTaskId,
+        percentage,
+        setPercentage,
       }}
     >
       {children}

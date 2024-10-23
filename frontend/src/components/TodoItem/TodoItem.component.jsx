@@ -41,7 +41,7 @@ const TodoItem = ({ data }) => {
             className={
               completed === 1
                 ? `${styles.checkbox} ${styles.checked}`
-                : styles.checkbox
+                : `${styles.checkbox} ${styles.uncheck}`
             }
             onClick={() =>
               handleStatus(id, completed, setTasks, setError, setLoading)

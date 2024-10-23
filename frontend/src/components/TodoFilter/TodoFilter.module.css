@@ -16,6 +16,11 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #3a6b94;
+  }
 }
 
 .filterWrapper {

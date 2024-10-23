@@ -38,6 +38,15 @@ const updateTask = async (taskId, payload) => {
   }
 };
 
+const markAllTasksAsCompleted = async () => {
+  try {
+    const response = await axios.patch(`${API_URL}completed`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 const updateStatusTask = async (taskId, payload) => {
   try {
     const response = await axios.patch(`${API_URL}${taskId}`, payload);
@@ -63,4 +72,5 @@ export {
   updateStatusTask,
   createTask,
   deleteTask,
+  markAllTasksAsCompleted,
 };

@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: 'Hello World!' });
 });
 
+// app.use('/api/tasks/completed', (req, res) => {
+//   res.status(200).json({ message: 'All aaaaaatasks marked as completed' });
+// });
+
 app.use('/api/tasks/', tasksRouter);
 
 module.exports = app;

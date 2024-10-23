@@ -1,14 +1,20 @@
-import { useId } from 'react';
+import { useContext, useId } from 'react';
+import { TaskContext } from '../../contexts/TaskContext';
 import { MdOutlineDoneAll } from 'react-icons/md';
 import { IoSearch } from 'react-icons/io5';
 import styles from './TodoFilter.module.css';
+import { handleCompleted } from './TodoFilter.handle';
 
 const TodoFilter = () => {
   const idInput = useId();
   const idSelect = useId();
+  const { setTasks, setError, setLoading, percentage } = useContext(TaskContext);
   return (
     <section className={styles.todoControls}>
-      <button className={styles.markAllButton}>
+      <button
+        className={styles.markAllButton}
+        onClick={() => handleCompleted(setTasks, setError, setLoading, percentage)}
+      >
         Mark All Completed <MdOutlineDoneAll />
       </button>
       <div className={styles.filterWrapper}>

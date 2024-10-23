@@ -6,13 +6,12 @@ import { getPercentage, getTaskCompleted, showToast } from './TodoProgress.handl
 import styles from './TodoProgress.module.css';
 
 const TodoProgress = () => {
-  const [percentage, setPercentage] = useState(0);
-  const { tasks } = useContext(TaskContext);
+  const { tasks, percentage, setPercentage } = useContext(TaskContext);
 
   useEffect(() => {
     const percentage = getPercentage(tasks);
     setPercentage(percentage);
-    
+
     showToast(percentage);
   }, [tasks]);
 

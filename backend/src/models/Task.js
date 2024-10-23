@@ -50,11 +50,17 @@ const dbDeleteTask = async (taskId) => {
   return await db.execute(SQLQuery, [taskId]);
 };
 
+const dbMarkAllTasksAsCompleted = async () => {
+  const SQLQuery = 'UPDATE tasks SET completed = 1, updated_at = NOW()';
+  return await db.execute(SQLQuery);
+};
+
 module.exports = {
   dbGetTasks,
   dbCreateTask,
   dbGetTaskById,
-  dbUpdateStatusTask,
   dbUpdateTask,
+  dbUpdateStatusTask,
+  dbMarkAllTasksAsCompleted,
   dbDeleteTask,
 };

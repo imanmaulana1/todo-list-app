@@ -77,6 +77,17 @@ const updateStatusTask = async (req, res) => {
   }
 };
 
+const markAllTasksAsCompleted = async (req, res) => {
+  try {
+    await Task.dbMarkAllTasksAsCompleted();
+    res.status(200).json({ message: 'All tasks marked as completed' });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: 'Internal server error', error: error.message });
+  }
+};
+
 const deleteTask = async (req, res) => {
   const { taskId } = req.params;
   try {
@@ -95,5 +106,6 @@ module.exports = {
   createTask,
   updateTask,
   updateStatusTask,
+  markAllTasksAsCompleted,
   deleteTask,
 };
