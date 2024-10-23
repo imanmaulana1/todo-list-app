@@ -15,7 +15,7 @@ const getPercentage = (tasks) => {
 
 const showToast = (percentage) => {
   if (percentage === 100) {
-    toast.success(`👏  Great job! All tasks are done!`, {
+    toast.success(`🔥 You did it! No more tasks to tackle today!`, {
       icon: false,
     });
   }

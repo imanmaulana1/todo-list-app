@@ -11,7 +11,7 @@ import {
 import { TaskContext } from './contexts/TaskContext';
 
 function App() {
-  const { tasks } = useContext(TaskContext);
+  const { tasks, filteredTasks, searchTerm } = useContext(TaskContext);
   return (
     <>
       <ToastContainer
@@ -28,9 +28,11 @@ function App() {
           <TodoFilter />
           <TodoInput />
           <TodoList>
-            {tasks?.map((task) => (
-              <TodoItem key={task.id} data={task} />
-            ))}
+            {filteredTasks.length > 0 || searchTerm
+              ? filteredTasks.map((task) => (
+                  <TodoItem key={task.id} data={task} />
+                ))
+              : tasks.map((task) => <TodoItem key={task.id} data={task} />)}
           </TodoList>
         </main>
       </div>

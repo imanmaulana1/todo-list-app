@@ -1,7 +1,8 @@
 const db = require('../config/database');
 
 const dbGetTasks = async () => {
-  const SQLQuery = `SELECT * FROM tasks`;
+  let SQLQuery = `SELECT * FROM tasks`;
+
   const [rows] = await db.execute(SQLQuery);
 
   return rows;

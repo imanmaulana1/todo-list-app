@@ -9,6 +9,9 @@ export const TaskProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [taskId, setTaskId] = useState(null);
   const [percentage, setPercentage] = useState(0);
+  const [filteredTasks, setFilteredTasks] = useState(tasks);
+  const [filterStatus, setFilterStatus] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
   return (
     <TaskContext.Provider
       value={{
@@ -24,6 +27,12 @@ export const TaskProvider = ({ children }) => {
         setTaskId,
         percentage,
         setPercentage,
+        filteredTasks,
+        setFilteredTasks,
+        filterStatus, 
+        setFilterStatus,
+        searchTerm,
+        setSearchTerm,
       }}
     >
       {children}

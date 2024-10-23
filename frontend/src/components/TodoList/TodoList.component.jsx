@@ -5,7 +5,7 @@ import Loader from '../Loader/Loader.component';
 import styles from './TodoList.module.css';
 
 const TodoList = ({ children }) => {
-  const { tasks, setTasks, setError, loading, setLoading } =
+  const { tasks, setTasks, setError, loading, setLoading, filteredTasks, searchTerm } =
     useContext(TaskContext);
 
   useEffect(() => {
@@ -22,6 +22,13 @@ const TodoList = ({ children }) => {
           ) : (
             <section className={styles.empty}>
               <h2 className={styles.title}>You have no tasks.</h2>
+            </section>
+          )}
+          {filteredTasks.length === 0 && searchTerm && tasks.length > 0 && (
+            <section className={styles.empty}>
+              <h2 className={styles.title}>
+                No tasks found for "{searchTerm}".
+              </h2>
             </section>
           )}
         </>

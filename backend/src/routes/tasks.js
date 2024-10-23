@@ -16,5 +16,4 @@ router.patch('/:taskId', validatePatchTask, tasksController.updateStatusTask);
 router.put('/:taskId', tasksController.updateTask);
 router.delete('/:taskId', tasksController.deleteTask);
 
-
 module.exports = router;

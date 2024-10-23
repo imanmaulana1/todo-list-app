@@ -7,7 +7,11 @@ const fetchTasks = async () => {
     const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {
-    throw error;
+    if (error.response && error.response.data) {
+      throw new Error(error.response.data.message || 'An error occurred');
+    } else {
+      throw new Error(error.message);
+    }
   }
 };
 

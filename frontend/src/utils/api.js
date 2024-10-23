@@ -1,4 +1,5 @@
 import { fetchTasks } from '../services/todoService';
+import { toast } from 'react-toastify';
 
 const getTasks = async (setTasks, setError, setLoading) => {
   setLoading(true);
@@ -7,6 +8,7 @@ const getTasks = async (setTasks, setError, setLoading) => {
     setTasks(res);
   } catch (error) {
     setError(error);
+    toast.error(error.message);
   } finally {
     setLoading(false);
   }

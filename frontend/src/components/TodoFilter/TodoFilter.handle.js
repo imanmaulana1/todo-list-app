@@ -6,7 +6,7 @@ const handleCompleted = async (setTasks, setError, setLoading, percentage) => {
   setLoading(true);
 
   if (percentage === 100) {
-    toast.info(`You have completed all tasks!`);
+    toast.info(`👏  You have completed all tasks!`);
     setLoading(false);
     return;
   }
