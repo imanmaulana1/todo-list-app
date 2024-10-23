@@ -6,11 +6,11 @@ import { TaskProvider } from './contexts/TaskContext.jsx';
 import { ModalProvider } from './contexts/ModalContext.jsx';
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
+  <StrictMode>
     <TaskProvider>
       <ModalProvider>
         <App />
       </ModalProvider>
     </TaskProvider>
-  // </StrictMode>
+  </StrictMode>
 );
