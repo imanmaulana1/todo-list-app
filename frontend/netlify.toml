@@ -4,5 +4,6 @@
     Content-Type = "application/javascript"
 
 [build]
+  base = "."
   command = "npm run build"
-  publish = "frontend/dist"
+  publish = "dist"
