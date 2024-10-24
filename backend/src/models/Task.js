@@ -2,7 +2,6 @@ const db = require('../config/database');
 
 const dbGetTasks = async () => {
   let SQLQuery = `SELECT * FROM tasks`;
-
   const [rows] = await db.execute(SQLQuery);
 
   return rows;
@@ -25,7 +24,9 @@ const dbGetTaskById = async (taskId) => {
   const [rows] = await db.execute(SQLQuery, [taskId]);
 
   if (rows.length === 0) {
-    throw new Error('Task not found');
+    const error = new Error('Task not found');
+    error.status = 404;
+    throw error;
   }
 
   return rows;

@@ -12,14 +12,10 @@ app.use(express.json());
 
 app.use(morgan('dev'));
 
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Hello World!' });
-});
-
-// app.use('/api/tasks/completed', (req, res) => {
-//   res.status(200).json({ message: 'All aaaaaatasks marked as completed' });
-// });
-
 app.use('/api/tasks/', tasksRouter);
+
+app.use((req, res, next) => {
+  res.status(404).json({ message: 'Not found' });
+});
 
 module.exports = app;

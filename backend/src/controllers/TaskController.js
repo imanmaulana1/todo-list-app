@@ -17,6 +17,10 @@ const getTaskById = async (req, res) => {
     const task = await Task.dbGetTaskById(taskId);
     res.json(task);
   } catch (error) {
+    if (error.status === 404) {
+      res.status(404).json({ message: 'Task not found', error: error.message });
+    }
+
     res
       .status(500)
       .json({ message: 'Internal server error', error: error.message });
