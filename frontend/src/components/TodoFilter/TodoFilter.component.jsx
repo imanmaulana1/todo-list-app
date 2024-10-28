@@ -97,7 +97,7 @@ const TodoFilter = () => {
           <button
             className={styles.searchButton}
             onClick={() => handleFilter(filterStatus, searchTerm)}
-            aria-labelledby='search'
+            aria-labelledby={idInput}
           >
             <IoSearch />
           </button>

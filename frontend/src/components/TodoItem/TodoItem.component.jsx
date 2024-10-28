@@ -55,7 +55,15 @@ const TodoItem = ({ data }) => {
             {completed === 1 && <MdOutlineDone color='#ffffff' />}
           </button>
           <div className={styles.content}>
-            <p className={styles.title}>{task_name}</p>
+            <p
+              className={
+                completed === 1
+                  ? `${styles.title} ${styles.completed} `
+                  : styles.title
+              }
+            >
+              {task_name}
+            </p>
             <p className={styles.date}>
               {formatDate(updated_at, 'h:mm A, DD/MM/YYYY')}
             </p>
@@ -66,8 +74,8 @@ const TodoItem = ({ data }) => {
             className={styles.editButton}
             title='Edit Task'
             onClick={() => {
-              handleOpenModal('edit');
               setTaskId(id);
+              handleOpenModal('edit');
             }}
           >
             <MdEdit />
