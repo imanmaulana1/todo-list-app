@@ -2,12 +2,15 @@
 
 This To-Do List project is a simple web application that allows users to create, read, update, and delete tasks. It supports task management with various features such as filtering tasks by name or status, and marking tasks as complete or incomplete.
 
----
+
 
 ## Demo
 
 - **Frontend**: [https://todolist-web-portfolio.netlify.app/](https://todolist-web-portfolio.netlify.app/)
 - **Backend**: [https://todo-list-app-production-240e.up.railway.app](https://todo-list-app-production-240e.up.railway.app)
+
+## Screenshot
+<img src="https://i.ibb.co.com/XzxnByb/Frame-2.png" alt="Screenshot" border="0">
 
 ---
 
